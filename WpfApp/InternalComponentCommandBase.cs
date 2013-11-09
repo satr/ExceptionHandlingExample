@@ -4,11 +4,11 @@ using InternalComponent;
 
 namespace WpfApp
 {
-    public abstract class DoWorkWithInternalBLCommandBase : ICommand
+    public abstract class InternalComponentCommandBase : ICommand
     {
         protected readonly InternalBL InternalBL;
 
-        protected DoWorkWithInternalBLCommandBase(InternalBL internalBL)
+        protected InternalComponentCommandBase(InternalBL internalBL)
         {
             InternalBL = internalBL;
         }

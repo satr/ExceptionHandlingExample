@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using ExternalBLInterfaces;
 
-namespace ExternalComponent
+namespace PluginComponent
 {
-    public class ExternalBL : IExternalBL
+    public class Plugin : IPlugin
     {
-        public void DoWork()
+        public void Run()
         {
             MethodThrowingFileNotFoundException();
         }

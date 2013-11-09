@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UIHelper.cs" />
     <Page Include="MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -61,11 +62,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DoWorkWithInternalBL1Command.cs" />
-    <Compile Include="DoWorkWithInternalBL2Command.cs" />
-    <Compile Include="DoWorkWithExternalBLCommand.cs" />
-    <Compile Include="DoWorkWithInternalBLCommandBase.cs" />
-    <Compile Include="Helpers.cs" />
+    <Compile Include="InternalComponentThrowingFileNotFoundExceptionCommand.cs" />
+    <Compile Include="InternalComponentThrowingExceptionCommand.cs" />
+    <Compile Include="PluginCommand.cs" />
+    <Compile Include="InternalComponentCommandBase.cs" />
+    <Compile Include="PluginHelper.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -100,13 +101,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExternalBLInterfaces\ExternalBLInterfaces.csproj">
-      <Project>{D228FB74-78B7-47B9-A396-E6609FCB15A5}</Project>
-      <Name>ExternalBLInterfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\InternalComponent\InternalComponent.csproj">
       <Project>{33DBF0CA-D334-482A-B109-F1F6953EBE10}</Project>
       <Name>InternalComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginInterfaces\PluginInterfaces.csproj">
+      <Project>{D228FB74-78B7-47B9-A396-E6609FCB15A5}</Project>
+      <Name>PluginInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

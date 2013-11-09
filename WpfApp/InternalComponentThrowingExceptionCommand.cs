@@ -2,9 +2,9 @@
 
 namespace WpfApp
 {
-    public class DoWorkWithInternalBL1Command: DoWorkWithInternalBLCommandBase
+    public class InternalComponentThrowingExceptionCommand : InternalComponentCommandBase
     {
-        public DoWorkWithInternalBL1Command(InternalBL internalBL) : base(internalBL)
+        public InternalComponentThrowingExceptionCommand(InternalBL internalBL) : base(internalBL)
         {
         }
 

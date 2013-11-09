@@ -6,19 +6,19 @@ namespace WpfApp
 {
     public class MainViewModel
     {
-        public MainViewModel(StackPanel externalBLPanel)
+        public MainViewModel(Panel pluginElementPanel)
         {
             var internalBL = new InternalBL();
-            DoWorkWithInternalBL1Command = new DoWorkWithInternalBL1Command(internalBL);
-            DoWorkWithInternalBL2Command = new DoWorkWithInternalBL2Command(internalBL);
-            foreach (var externalBL in Helpers.LoadExternalComponents())
+            InternalComponetntThrowingFileNotFoundCommand = new InternalComponentThrowingFileNotFoundExceptionCommand(internalBL);
+            InternalComponentThrowingExceptionCommand = new InternalComponentThrowingExceptionCommand(internalBL);
+            foreach (var plugin in PluginHelper.LoadPlugins())
             {
-                externalBLPanel.Children.Add(Helpers.CreateExternalBLUIElement(externalBL));
+                pluginElementPanel.Children.Add(UIHelper.CreatePluginUIElement(plugin));
             }
         }
 
 
-        public ICommand DoWorkWithInternalBL1Command { get; set; }
-        public ICommand DoWorkWithInternalBL2Command { get; set; }
+        public ICommand InternalComponetntThrowingFileNotFoundCommand { get; set; }
+        public ICommand InternalComponentThrowingExceptionCommand { get; set; }
     }
 }

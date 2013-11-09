@@ -7,8 +7,8 @@
     <ProjectGuid>{03EA3C52-5A76-4201-BBE1-0E418669B883}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExternalComponent</RootNamespace>
-    <AssemblyName>ExternalComponentThrowingException</AssemblyName>
+    <RootNamespace>PluginComponent</RootNamespace>
+    <AssemblyName>PluginComponentThrowingException</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,18 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExternalBL.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExternalBLInterfaces\ExternalBLInterfaces.csproj">
+    <ProjectReference Include="..\PluginInterfaces\PluginInterfaces.csproj">
       <Project>{D228FB74-78B7-47B9-A396-E6609FCB15A5}</Project>
-      <Name>ExternalBLInterfaces</Name>
+      <Name>PluginInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetFileName) $(SolutionDir)WpfApp\bin\Debug</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,8 +1,8 @@
 ﻿namespace ExternalBLInterfaces
 {
-    public interface IExternalBL
+    public interface IPlugin
     {
-        void DoWork();
+        void Run();
         string Description { get; }
     }
 }
