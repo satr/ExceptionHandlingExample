@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
-using ExternalBLInterfaces;
+using Common;
 
-namespace WpfApp
+namespace WpfApp.Commands
 {
     public class PluginCommand : ICommand
     {

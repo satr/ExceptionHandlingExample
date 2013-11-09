@@ -1,10 +1,18 @@
 ﻿using System;
 using System.IO;
+using Common;
 
 namespace InternalComponent
 {
     public class InternalBL
     {
+        public ILogger Logger { get; set; }
+
+        public InternalBL(ILogger logger)
+        {
+            Logger = logger;
+        }
+
         public void MethodWhichInvokesPrivateMethodThrowingFileNotFoundException()
         {
             MethodThrowingFileNotFoundException();

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using ExternalBLInterfaces;
+using Common;
 
-namespace WpfApp
+namespace WpfApp.Helpers
 {
     internal class PluginHelper
     {
@@ -13,7 +13,7 @@ namespace WpfApp
         private const string ComponentExtension = ".dll";
         private const string FileComponentSearchPattern = "*" + ComponentExtension;
 
-        public static List<IPlugin> LoadPlugins()
+        public static List<IPlugin> LoadPlugins(ILogger logger)
         {
             var plugins = new List<IPlugin>();
 
@@ -22,13 +22,13 @@ namespace WpfApp
             {
                 if (referencedComponentFileNames.Contains(new FileInfo(fileName).Name, NameComparer))
                     continue;
-                plugins.AddRange(GetPluginsFrom(fileName));
+                plugins.AddRange(GetPluginsFrom(fileName, logger));
             }
 
             return plugins;
         }
 
-        private static IEnumerable<IPlugin> GetPluginsFrom(string fileName)
+        private static IEnumerable<IPlugin> GetPluginsFrom(string fileName, ILogger logger)
         {
             Assembly externalAssembly;
             try
@@ -37,12 +37,16 @@ namespace WpfApp
             }
             catch (BadImageFormatException)
             {
-                //skip non-assembly filesS
-                return new List<IPlugin>();
+                //skip non-assembly files
+                yield break;
             }
             var exportedTypes = externalAssembly.GetExportedTypes()
                 .Where(t => !t.IsInterface && typeof (IPlugin).IsAssignableFrom(t));
-            return exportedTypes.Select(Activator.CreateInstance).OfType<IPlugin>();
+            foreach (var plugin in exportedTypes.Select(Activator.CreateInstance).OfType<IPlugin>())
+            {
+                plugin.Logger = logger;
+                yield return plugin;
+            }
         }
 
         private static IEnumerable<string> GetComponentFileNames()

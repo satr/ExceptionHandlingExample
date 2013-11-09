@@ -1,10 +1,15 @@
 ﻿using System.IO;
-using ExternalBLInterfaces;
+using Common;
 
 namespace PluginComponent
 {
     public class Plugin : IPlugin
     {
+        public Plugin()
+        {
+            Logger = new NullLogger();
+        }
+
         public void Run()
         {
             MethodThrowingFileNotFoundException();
@@ -22,5 +27,7 @@ namespace PluginComponent
                 return "Plugin throwing FileNotFoundException";
             }
         }
+
+        public ILogger Logger { get; set; }
     }
 }

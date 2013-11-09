@@ -1,8 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using ExternalBLInterfaces;
+using Common;
+using WpfApp.Commands;
 
-namespace WpfApp
+namespace WpfApp.Helpers
 {
     class UIHelper
     {

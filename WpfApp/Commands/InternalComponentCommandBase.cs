@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using InternalComponent;
 
-namespace WpfApp
+namespace WpfApp.Commands
 {
     public abstract class InternalComponentCommandBase : ICommand
     {

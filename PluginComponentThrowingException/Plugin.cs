@@ -1,10 +1,15 @@
 ﻿using System;
-using ExternalBLInterfaces;
+using Common;
 
 namespace PluginComponent
 {
     public class Plugin : IPlugin
     {
+        public Plugin()
+        {
+            Logger = new NullLogger();
+        }
+
         public void Run()
         {
             MethodThrowingException();
@@ -17,6 +22,8 @@ namespace PluginComponent
                 return "Plugin Throwing Exception";
             }
         }
+
+        public ILogger Logger { get; set; }
 
         private void MethodThrowingException()
         {

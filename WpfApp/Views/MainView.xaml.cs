@@ -1,6 +1,7 @@
 ﻿using System.Windows;
+using WpfApp.ViewModels;
 
-namespace WpfApp
+namespace WpfApp.Views
 {
     /// <summary>
     /// Interaction logic for MainView.xaml

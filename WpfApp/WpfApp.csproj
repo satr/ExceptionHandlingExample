@@ -53,8 +53,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UIHelper.cs" />
-    <Page Include="MainView.xaml">
+    <Compile Include="BL\Logger.cs" />
+    <Compile Include="BL\Storage.cs" />
+    <Compile Include="Helpers\UIHelper.cs" />
+    <Page Include="Views\LogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -62,13 +68,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="InternalComponentThrowingFileNotFoundExceptionCommand.cs" />
-    <Compile Include="InternalComponentThrowingExceptionCommand.cs" />
-    <Compile Include="PluginCommand.cs" />
-    <Compile Include="InternalComponentCommandBase.cs" />
-    <Compile Include="PluginHelper.cs" />
-    <Compile Include="MainViewModel.cs" />
-    <Compile Include="MainView.xaml.cs">
+    <Compile Include="Commands\InternalComponentThrowingFileNotFoundExceptionCommand.cs" />
+    <Compile Include="Commands\InternalComponentThrowingExceptionCommand.cs" />
+    <Compile Include="Commands\PluginCommand.cs" />
+    <Compile Include="Commands\InternalComponentCommandBase.cs" />
+    <Compile Include="Helpers\PluginHelper.cs" />
+    <Compile Include="Entities\LogItem.cs" />
+    <Compile Include="Models\LogModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\LogView.xaml.cs">
+      <DependentUpon>LogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LogViewModel.cs" />
+    <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -90,6 +102,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -101,13 +114,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonInterfaces\Common.csproj">
+      <Project>{D228FB74-78B7-47B9-A396-E6609FCB15A5}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InternalComponent\InternalComponent.csproj">
       <Project>{33DBF0CA-D334-482A-B109-F1F6953EBE10}</Project>
       <Name>InternalComponent</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PluginInterfaces\PluginInterfaces.csproj">
-      <Project>{D228FB74-78B7-47B9-A396-E6609FCB15A5}</Project>
-      <Name>PluginInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

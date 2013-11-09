@@ -1,6 +1,6 @@
 ﻿using InternalComponent;
 
-namespace WpfApp
+namespace WpfApp.Commands
 {
     public class InternalComponentThrowingFileNotFoundExceptionCommand: InternalComponentCommandBase
     {

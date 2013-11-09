@@ -43,9 +43,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PluginInterfaces\PluginInterfaces.csproj">
+    <ProjectReference Include="..\CommonInterfaces\Common.csproj">
       <Project>{D228FB74-78B7-47B9-A396-E6609FCB15A5}</Project>
-      <Name>PluginInterfaces</Name>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
