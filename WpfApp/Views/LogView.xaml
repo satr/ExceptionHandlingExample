@@ -9,7 +9,7 @@
         <ListView ItemsSource="{Binding Log}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true">
-                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path=Description}" Width="200"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path=Description}" Width="400"/>
                     <GridViewColumn Header="Severity" DisplayMemberBinding="{Binding Path=Severity}" Width="100"/>
                     <GridViewColumn Header="Created on" DisplayMemberBinding="{Binding Path=CreatedOn}" Width="100"/>
                 </GridView>

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Common;
+using Common.Logging;
 using Common.Plugins;
 using WpfApp.Commands;
 
@@ -8,12 +9,12 @@ namespace WpfApp.Helpers
 {
     class UIHelper
     {
-        public static UIElement CreatePluginUIElement(IPlugin plugin)
+        public static UIElement CreatePluginUIElement(IPlugin plugin, ILogger logger)
         {
             var element = new Button
             {
                 Content = plugin.Description,
-                Command = new PluginCommand(plugin)
+                Command = new PluginCommand(plugin, logger)
             };
             return element;
         }

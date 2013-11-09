@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{5A9C0AC7-1748-462E-B048-CE851198A4E4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6B111E50-3B7F-49CC-943C-A9421A9F223D} = {6B111E50-3B7F-49CC-943C-A9421A9F223D}
+		{03EA3C52-5A76-4201-BBE1-0E418669B883} = {03EA3C52-5A76-4201-BBE1-0E418669B883}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalComponent", "InternalComponent\InternalComponent.csproj", "{33DBF0CA-D334-482A-B109-F1F6953EBE10}"
 EndProject
@@ -44,7 +48,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{03EA3C52-5A76-4201-BBE1-0E418669B883} = {555EC811-1BDB-4673-B9AB-151C5F8971D1}
 		{6B111E50-3B7F-49CC-943C-A9421A9F223D} = {555EC811-1BDB-4673-B9AB-151C5F8971D1}
+		{03EA3C52-5A76-4201-BBE1-0E418669B883} = {555EC811-1BDB-4673-B9AB-151C5F8971D1}
 	EndGlobalSection
 EndGlobal

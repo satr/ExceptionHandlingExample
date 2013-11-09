@@ -1,16 +1,17 @@
-﻿using InternalComponent;
+﻿using Common.Logging;
+using InternalComponent;
 
 namespace WpfApp.Commands
 {
     public class InternalComponentThrowingExceptionCommand : InternalComponentCommandBase
     {
-        public InternalComponentThrowingExceptionCommand(InternalBL internalBL) : base(internalBL)
+        public InternalComponentThrowingExceptionCommand(InternalBL internalBL, ILogger logger) : base(internalBL, logger)
         {
         }
 
-        public override void Execute(object parameter)
+        protected override void ExecuteInternal(object parameter)
         {
-            InternalBL.MethodWhichInvokesPrivateMethodThrowingFileNotFoundException();
+            InternalBL.MethodWhichInvokesPrivateMethodThrowingException();
         }
     }
 }

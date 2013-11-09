@@ -55,6 +55,7 @@
     </ApplicationDefinition>
     <Compile Include="BL\Logger.cs" />
     <Compile Include="BL\Storage.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
     <Page Include="Views\LogView.xaml">
       <SubType>Designer</SubType>

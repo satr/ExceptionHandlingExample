@@ -1,5 +1,5 @@
 ﻿using System;
-using Common;
+using System.ComponentModel;
 using Common.Logging;
 using Common.Plugins;
 
@@ -14,7 +14,9 @@ namespace PluginComponent
 
         public void Run()
         {
-            MethodThrowingException();
+            Logger.WriteInfo(string.Format("Plugin {0} is starting", Description));
+            DoWork();
+            Logger.WriteInfo(string.Format("Plugin {0} finished", Description));
         }
 
         public string Description
@@ -27,10 +29,17 @@ namespace PluginComponent
 
         public ILogger Logger { get; set; }
 
-        private void MethodThrowingException()
+        private void DoWork()
+        {
+            new Worker().Do();
+        }
+    }
+
+    internal class Worker
+    {
+        public void Do()
         {
             throw new Exception("Unexpected error orrured");
         }
     }
-
 }

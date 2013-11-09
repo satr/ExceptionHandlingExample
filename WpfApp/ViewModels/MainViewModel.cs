@@ -13,17 +13,17 @@ namespace WpfApp.ViewModels
         {
             Storage.Logger.WriteInfo("Initialization started.");
             var internalBL = new InternalBL(Storage.Logger);
-            InternalComponetntThrowingFileNotFoundCommand = new InternalComponentThrowingFileNotFoundExceptionCommand(internalBL);
-            InternalComponentThrowingExceptionCommand = new InternalComponentThrowingExceptionCommand(internalBL);
+            InternalComponentThrowingFileNotFoundCommand = new InternalComponentThrowingFileNotFoundExceptionCommand(internalBL, Storage.Logger);
+            InternalComponentThrowingExceptionCommand = new InternalComponentThrowingExceptionCommand(internalBL, Storage.Logger);
             foreach (var plugin in PluginHelper.LoadPlugins(Storage.Logger))
             {
-                pluginElementPanel.Children.Add(UIHelper.CreatePluginUIElement(plugin));
+                pluginElementPanel.Children.Add(UIHelper.CreatePluginUIElement(plugin, Storage.Logger));
             }
             Storage.Logger.WriteInfo("Initialization complete.");
         }
 
 
-        public ICommand InternalComponetntThrowingFileNotFoundCommand { get; set; }
+        public ICommand InternalComponentThrowingFileNotFoundCommand { get; set; }
         public ICommand InternalComponentThrowingExceptionCommand { get; set; }
     }
 }

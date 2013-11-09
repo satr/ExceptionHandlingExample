@@ -1,24 +1,15 @@
-﻿using System;
-using System.Windows.Input;
+﻿using Common.Logging;
 using InternalComponent;
 
 namespace WpfApp.Commands
 {
-    public abstract class InternalComponentCommandBase : ICommand
+    public abstract class InternalComponentCommandBase : CommandBase
     {
         protected readonly InternalBL InternalBL;
 
-        protected InternalComponentCommandBase(InternalBL internalBL)
+        protected InternalComponentCommandBase(InternalBL internalBL, ILogger logger):base(logger)
         {
             InternalBL = internalBL;
         }
-
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
-
-        public abstract void Execute(object parameter);
-        public event EventHandler CanExecuteChanged;
     }
 }

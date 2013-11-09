@@ -1,29 +1,22 @@
-﻿using System;
-using System.Windows.Input;
-using Common;
+﻿using Common.Logging;
 using Common.Plugins;
 
 namespace WpfApp.Commands
 {
-    public class PluginCommand : ICommand
+    public class PluginCommand : CommandBase
     {
         private readonly IPlugin _plugin;
 
-        public PluginCommand(IPlugin plugin)
+        public PluginCommand(IPlugin plugin, ILogger logger) : base(logger)
         {
             _plugin = plugin;
         }
 
-        public bool CanExecute(object parameter)
+        protected override void ExecuteInternal(object parameter)
         {
-            return true;
-        }
-
-        public void Execute(object parameter)
-        {
+            Logger.WriteInfo(string.Format("Plugin {0} is starting", _plugin.Description));
             _plugin.Run();
+            Logger.WriteInfo(string.Format("Plugin {0} finished", _plugin.Description));
         }
-
-        public event EventHandler CanExecuteChanged;
     }
 }
