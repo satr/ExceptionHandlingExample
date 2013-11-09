@@ -1,15 +1,14 @@
-﻿using Common;
-using Common.Logging;
+﻿using Common.Logging;
 
 namespace WpfApp.BL
 {
     class Storage
     {
-        private static Logger _logger;
+        private static CompositeLogger _logger;
 
         public static ILogger Logger
         {
-            get { return _logger ?? (_logger = new Logger()); }
+            get { return _logger ?? (_logger = new CompositeLogger()); }
         }
     }
 }

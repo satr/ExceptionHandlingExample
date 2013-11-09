@@ -13,7 +13,7 @@ namespace WpfApp.Views
         public LogView()
         {
             InitializeComponent();
-            DataContext = new LogViewModel(new LogModel(LogSeverity.Warning, LogSeverity.Info, LogSeverity.Warning, LogSeverity.Info));
+            DataContext = new LogViewModel(new LogModel(LogSeverity.Critical, LogSeverity.Error, LogSeverity.Warning, LogSeverity.Info));
         }
     }
 }

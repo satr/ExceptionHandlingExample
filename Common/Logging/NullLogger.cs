@@ -12,16 +12,18 @@ namespace Common.Logging
         {
         }
 
-        public void WriteCritical(string description, Exception exception)
+        public string WriteCritical(string description, Exception exception)
         {
+            return string.Empty;
         }
 
         public void WriteError(string description)
         {
         }
 
-        public void WriteError(string description, Exception exception)
+        public string WriteError(string description, Exception exception)
         {
+            return string.Empty;
         }
 
         public void WriteWarning(string description)

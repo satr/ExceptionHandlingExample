@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Common;
 using Common.Logging;
 
 namespace WpfApp.BL
 {
-    internal class Logger : ILogger
+    internal class CompositeLogger : ILogger
     {
         private readonly List<ILogSource> _logSources = new List<ILogSource>();
 
@@ -20,9 +19,9 @@ namespace WpfApp.BL
             Write(LogSeverity.Critical, description);
         }
 
-        public void WriteCritical(string description, Exception exception)
+        public string WriteCritical(string description, Exception exception)
         {
-            Write(LogSeverity.Critical, description, exception);
+            return Write(LogSeverity.Critical, description, exception);
         }
 
         public void WriteError(string description)
@@ -30,9 +29,9 @@ namespace WpfApp.BL
             Write(LogSeverity.Error, description);
         }
 
-        public void WriteError(string description, Exception exception)
+        public string WriteError(string description, Exception exception)
         {
-            Write(LogSeverity.Error, description, exception);
+            return Write(LogSeverity.Error, description, exception);
         }
 
         public void WriteWarning(string description)
@@ -53,7 +52,7 @@ namespace WpfApp.BL
             }
         }
 
-        private void Write(LogSeverity logSeverity, string description, Exception exception)
+        private string Write(LogSeverity logSeverity, string description, Exception exception)
         {
             var sb = new StringBuilder();
             sb.AppendLine(description);
@@ -64,7 +63,9 @@ namespace WpfApp.BL
                 sb.AppendLine(innerException.Message);
                 innerException = innerException.InnerException;
             }
-            Write(logSeverity, sb.ToString());
+            var compositeDescription = sb.ToString();
+            Write(logSeverity, compositeDescription);
+            return compositeDescription;
         }
     }
 }

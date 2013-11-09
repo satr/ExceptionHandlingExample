@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Common;
 using Common.Logging;
 using Common.Plugins;
+using Common.Services;
 
 namespace WpfApp.Helpers
 {
@@ -15,7 +15,7 @@ namespace WpfApp.Helpers
         private const string ComponentExtension = ".dll";
         private const string FileComponentSearchPattern = "*" + ComponentExtension;
 
-        public static List<IPlugin> LoadPlugins(ILogger logger)
+        public static List<IPlugin> LoadPlugins(ILogger logger, IHumanInteractionService humanInteractionService)
         {
             var plugins = new List<IPlugin>();
 
@@ -24,13 +24,13 @@ namespace WpfApp.Helpers
             {
                 if (referencedComponentFileNames.Contains(new FileInfo(fileName).Name, NameComparer))
                     continue;
-                plugins.AddRange(GetPluginsFrom(fileName, logger));
+                plugins.AddRange(GetPluginsFrom(fileName, logger, humanInteractionService));
             }
 
             return plugins;
         }
 
-        private static IEnumerable<IPlugin> GetPluginsFrom(string fileName, ILogger logger)
+        private static IEnumerable<IPlugin> GetPluginsFrom(string fileName, ILogger logger, IHumanInteractionService humanInteractionService)
         {
             Assembly externalAssembly;
             try
@@ -47,6 +47,7 @@ namespace WpfApp.Helpers
             foreach (var plugin in exportedTypes.Select(Activator.CreateInstance).OfType<IPlugin>())
             {
                 plugin.Logger = logger;
+                plugin.HumanInteractionService = humanInteractionService;
                 yield return plugin;
             }
         }

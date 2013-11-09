@@ -2,6 +2,7 @@
 using System.IO;
 using Common.Logging;
 using Common.Plugins;
+using Common.Services;
 
 namespace PluginComponent
 {
@@ -10,12 +11,21 @@ namespace PluginComponent
         public Plugin()
         {
             Logger = new NullLogger();
+            HumanInteractionService = new NullHumanInteractionService();
         }
 
         public void Run()
         {
             Logger.WriteInfo(string.Format("Plugin {0} is starting", Description));
-            DoWork();
+            try
+            {
+                DoWork();
+            }
+            catch (Exception e)
+            {
+                var message = Logger.WriteCritical("Unexpected error occured in plugin.", e);
+                HumanInteractionService.ShowError(message);
+            }
             Logger.WriteInfo(string.Format("Plugin {0} finished", Description));
         }
 
@@ -28,10 +38,19 @@ namespace PluginComponent
         }
 
         public ILogger Logger { get; set; }
+        public IHumanInteractionService HumanInteractionService { set; private get; }
 
         private void DoWork()
         {
-            new Worker().Do();
+            var worker = new Worker();
+            try
+            {
+                worker.Do();
+            }
+            catch (FileNotFoundException e)
+            {
+                Logger.WriteError("Expected file not found in plugin.", e);
+            } 
         }
     }
 

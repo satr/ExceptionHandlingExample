@@ -29,7 +29,15 @@ namespace InternalComponent
 
         private void MethodThrowingFileNotFoundException()
         {
-            new Worker1().Do();
+            var worker = new Worker1();
+            try
+            {
+                worker.Do();
+            }
+            catch (FileNotFoundException e)
+            {
+                Logger.WriteError("Expected file not found in internal component.", e);
+            }
         }
 
         private void MethodThrowingException()
@@ -42,7 +50,7 @@ namespace InternalComponent
     {
         public void Do()
         {
-//            throw new FileNotFoundException("Expected file not found");
+            throw new FileNotFoundException("Expected file not found");
         }
     }
 
@@ -50,7 +58,7 @@ namespace InternalComponent
     {
         public void Do()
         {
-         //   throw new Exception("Unexpected error orrured");
+            throw new Exception("Critical error occured");
         }
     }
 }

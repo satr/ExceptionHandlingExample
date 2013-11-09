@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using Common.Logging;
+using WpfApp.BL.Services;
 
 namespace WpfApp.Commands
 {
@@ -20,7 +21,15 @@ namespace WpfApp.Commands
 
         public void Execute(object parameter)
         {
-            ExecuteInternal(parameter);
+            try
+            {
+                ExecuteInternal(parameter);
+            }
+            catch (Exception e)
+            {
+                var message = Logger.WriteCritical("Unexpected error occured.", e);
+                ServiceLocator.Get<HumanInteractionService>().ShowError(message);
+            }
         }
 
         protected abstract void ExecuteInternal(object parameter);

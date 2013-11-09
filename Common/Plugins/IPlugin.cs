@@ -1,4 +1,5 @@
 ﻿using Common.Logging;
+using Common.Services;
 
 namespace Common.Plugins
 {
@@ -6,6 +7,7 @@ namespace Common.Plugins
     {
         void Run();
         string Description { get; }
-        ILogger Logger { get; set; }
+        ILogger Logger { set; }
+        IHumanInteractionService HumanInteractionService { set; }
     }
 }

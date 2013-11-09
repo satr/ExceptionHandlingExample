@@ -53,7 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BL\Logger.cs" />
+    <Compile Include="BL\CompositeLogger.cs" />
+    <Compile Include="BL\Services\HumanInteractionService.cs" />
+    <Compile Include="BL\Services\ServiceLocator.cs" />
     <Compile Include="BL\Storage.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
