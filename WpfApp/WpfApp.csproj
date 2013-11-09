@@ -61,7 +61,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DoWork1Command.cs" />
+    <Compile Include="DoWorkWithInternalBL1Command.cs" />
+    <Compile Include="DoWorkWithInternalBL2Command.cs" />
+    <Compile Include="DoWorkWithExternalBLCommand.cs" />
+    <Compile Include="DoWorkWithInternalBLCommandBase.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -96,6 +100,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExternalBLInterfaces\ExternalBLInterfaces.csproj">
+      <Project>{D228FB74-78B7-47B9-A396-E6609FCB15A5}</Project>
+      <Name>ExternalBLInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InternalComponent\InternalComponent.csproj">
       <Project>{33DBF0CA-D334-482A-B109-F1F6953EBE10}</Project>
       <Name>InternalComponent</Name>

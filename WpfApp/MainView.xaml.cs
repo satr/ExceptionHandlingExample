@@ -10,7 +10,7 @@ namespace WpfApp
         public MainView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext = new MainViewModel(ExternalBLPanel);
         }
     }
 }
