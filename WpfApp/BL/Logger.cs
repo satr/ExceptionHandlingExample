@@ -27,12 +27,12 @@ namespace WpfApp.BL
 
         public void WriteError(string description)
         {
-            Write(LogSeverity.High, description);
+            Write(LogSeverity.Error, description);
         }
 
         public void WriteError(string description, Exception exception)
         {
-            Write(LogSeverity.High, description, exception);
+            Write(LogSeverity.Error, description, exception);
         }
 
         public void WriteWarning(string description)

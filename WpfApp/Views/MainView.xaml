@@ -1,11 +1,14 @@
 ﻿<Window xmlns:Views="clr-namespace:WpfApp.Views"  x:Class="WpfApp.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainView" Height="517.5" Width="803">
+        Title="MainView" Height="517.5" Width="947">
+    <StackPanel Orientation="Horizontal">
     <StackPanel HorizontalAlignment="Left">
         <Button Command="{Binding InternalComponentThrowingFileNotFoundCommand}" Content="Use internal component which throws FileNotFoundException"></Button>
         <Button Command="{Binding InternalComponentThrowingExceptionCommand}" Content="Use internal component which throws Exception"></Button>
         <StackPanel x:Name="ExternalBLPanel"></StackPanel>
         <Views:LogView />
+    </StackPanel>
+        <Views:ErrorLogView/>
     </StackPanel>
 </Window>

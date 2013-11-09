@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WpfApp.Views.LogView"
+﻿<UserControl x:Class="WpfApp.Views.ErrorLogView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,12 +6,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
-        <Label Content="Log" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Errors" Foreground="#FFF90303" Background="#FFFBFBF7" FontWeight="Bold" FontSize="16"/>
         <ListView ItemsSource="{Binding Log}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true">
-                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path=Description}" Width="400"/>
-                    <GridViewColumn Header="Severity" DisplayMemberBinding="{Binding Path=Severity}" Width="100"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Path=Description}" Width="200"/>
                     <GridViewColumn Header="Created on" DisplayMemberBinding="{Binding Path=CreatedOn}" Width="100"/>
                 </GridView>
             </ListView.View>

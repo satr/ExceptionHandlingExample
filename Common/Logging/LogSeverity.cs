@@ -2,7 +2,7 @@
 {
     public enum LogSeverity
     {
-        High,
+        Error,
         Critical,
         Warning,
         Info

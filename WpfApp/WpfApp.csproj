@@ -57,6 +57,10 @@
     <Compile Include="BL\Storage.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
+    <Page Include="Views\ErrorLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -77,6 +81,9 @@
     <Compile Include="Entities\LogItem.cs" />
     <Compile Include="Models\LogModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\ErrorLogView.xaml.cs">
+      <DependentUpon>ErrorLogView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
     </Compile>

@@ -9,9 +9,9 @@ namespace WpfApp.ViewModels
     {
         private readonly LogModel _logModel;
 
-        public LogViewModel()
+        public LogViewModel(LogModel logModel)
         {
-            _logModel = new LogModel();
+            _logModel = logModel;
             Storage.Logger.AddSource(_logModel);
         }
 

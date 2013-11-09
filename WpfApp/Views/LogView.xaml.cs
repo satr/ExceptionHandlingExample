@@ -1,4 +1,6 @@
 ﻿using System.Windows.Controls;
+using Common.Logging;
+using WpfApp.Models;
 using WpfApp.ViewModels;
 
 namespace WpfApp.Views
@@ -11,7 +13,7 @@ namespace WpfApp.Views
         public LogView()
         {
             InitializeComponent();
-            DataContext = new LogViewModel();
+            DataContext = new LogViewModel(new LogModel(LogSeverity.Warning, LogSeverity.Info, LogSeverity.Warning, LogSeverity.Info));
         }
     }
 }
