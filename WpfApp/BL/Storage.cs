@@ -1,4 +1,5 @@
 ﻿using Common;
+using Common.Logging;
 
 namespace WpfApp.BL
 {

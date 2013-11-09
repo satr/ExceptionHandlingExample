@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using Common;
+using Common.Plugins;
 
 namespace WpfApp.Commands
 {

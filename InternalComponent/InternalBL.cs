@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Common;
+using Common.Logging;
 
 namespace InternalComponent
 {

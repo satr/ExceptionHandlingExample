@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Common;
+using Common.Plugins;
 using WpfApp.Commands;
 
 namespace WpfApp.Helpers

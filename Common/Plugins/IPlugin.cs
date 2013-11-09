@@ -1,4 +1,6 @@
-﻿namespace Common
+﻿using Common.Logging;
+
+namespace Common.Plugins
 {
     public interface IPlugin
     {

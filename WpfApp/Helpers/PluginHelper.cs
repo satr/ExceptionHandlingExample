@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Common;
+using Common.Logging;
+using Common.Plugins;
 
 namespace WpfApp.Helpers
 {

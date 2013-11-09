@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using Common;
+using Common.Logging;
 using WpfApp.Entities;
 
 namespace WpfApp.Models

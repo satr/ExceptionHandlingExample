@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using Common;
+using Common.Logging;
+using Common.Plugins;
 
 namespace PluginComponent
 {

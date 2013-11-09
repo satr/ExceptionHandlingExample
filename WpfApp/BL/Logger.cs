@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Common;
+using Common.Logging;
 
 namespace WpfApp.BL
 {
