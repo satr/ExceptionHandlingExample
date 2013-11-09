@@ -11,6 +11,7 @@ namespace WpfApp.ViewModels
     {
         public MainViewModel(Panel pluginElementPanel)
         {
+            Storage.Logger.WriteInfo("Initialization started.");
             var internalBL = new InternalBL(Storage.Logger);
             InternalComponetntThrowingFileNotFoundCommand = new InternalComponentThrowingFileNotFoundExceptionCommand(internalBL);
             InternalComponentThrowingExceptionCommand = new InternalComponentThrowingExceptionCommand(internalBL);
@@ -18,6 +19,7 @@ namespace WpfApp.ViewModels
             {
                 pluginElementPanel.Children.Add(UIHelper.CreatePluginUIElement(plugin));
             }
+            Storage.Logger.WriteInfo("Initialization complete.");
         }
 
 
