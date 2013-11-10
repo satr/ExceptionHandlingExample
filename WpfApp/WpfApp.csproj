@@ -58,6 +58,7 @@
     <Compile Include="BL\CompositeLogger.cs" />
     <Compile Include="BL\Services\HumanInteractionService.cs" />
     <Compile Include="BL\Services\ServiceLocator.cs" />
+    <Compile Include="BL\Services\WorkService.cs" />
     <Compile Include="BL\SettingsService.cs" />
     <Compile Include="Commands\Books\BookCancelCommand.cs" />
     <Compile Include="Commands\Books\BookCommandBase.cs" />
@@ -66,6 +67,9 @@
     <Compile Include="Commands\Books\BookSaveCriticalFailCommand.cs" />
     <Compile Include="Commands\Books\BookSaveErrorCommand.cs" />
     <Compile Include="Commands\Books\CloseBookListCommand.cs" />
+    <Compile Include="Commands\Books\RefreshBookListCommandBase.cs" />
+    <Compile Include="Commands\Books\RefreshBookListCriticalFailCommand.cs" />
+    <Compile Include="Commands\Books\RefreshBookListErrorCommand.cs" />
     <Compile Include="Commands\Settings\SettingsSaveCommandBase.cs" />
     <Compile Include="Commands\Settings\SettingsSaveCriticalFailCommand.cs" />
     <Compile Include="Entities\Settings.cs" />
@@ -84,6 +88,7 @@
     <Compile Include="Commands\Settings\SettingsSaveErrorCommand.cs" />
     <Compile Include="Commands\Settings\SettingsCancelCommand.cs" />
     <Compile Include="Commands\Books\BookSaveCorrectCommand.cs" />
+    <Compile Include="Commands\Books\RefreshBookListCorrectCommand.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Page Include="Views\BookListView.xaml">
       <SubType>Designer</SubType>
@@ -179,7 +184,7 @@
     <None Include="Service References\WorkServiceReference\WorkService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WorkServiceReference\WpfApp.WorkServiceReference.CompositeType.datasource">
+    <None Include="Service References\WorkServiceReference\WpfApp.WorkServiceReference.Book.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

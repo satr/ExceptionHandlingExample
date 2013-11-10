@@ -15,18 +15,18 @@ namespace WpfApp.WorkServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Book", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Book : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        private int PagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private string TitleField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -39,27 +39,27 @@ namespace WpfApp.WorkServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public int Pages {
             get {
-                return this.BoolValueField;
+                return this.PagesField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((this.PagesField.Equals(value) != true)) {
+                    this.PagesField = value;
+                    this.RaisePropertyChanged("Pages");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public string Title {
             get {
-                return this.StringValueField;
+                return this.TitleField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
                 }
             }
         }
@@ -74,21 +74,134 @@ namespace WpfApp.WorkServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FaultBase", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfApp.WorkServiceReference.UnrecoverableFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfApp.WorkServiceReference.RecoverableFault))]
+    public partial class FaultBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IssueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Details {
+            get {
+                return this.DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Issue {
+            get {
+                return this.IssueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssueField, value) != true)) {
+                    this.IssueField = value;
+                    this.RaisePropertyChanged("Issue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnrecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+    [System.SerializableAttribute()]
+    public partial class UnrecoverableFault : WpfApp.WorkServiceReference.FaultBase {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+    [System.SerializableAttribute()]
+    public partial class RecoverableFault : WpfApp.WorkServiceReference.FaultBase {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WorkServiceReference.IWorkService")]
     public interface IWorkService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetData", ReplyAction="http://tempuri.org/IWorkService/GetDataResponse")]
-        string GetData(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetBookListCorrect", ReplyAction="http://tempuri.org/IWorkService/GetBookListCorrectResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.RecoverableFault), Action="http://tempuri.org/IWorkService/GetBookListCorrectRecoverableFaultFault", Name="RecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.UnrecoverableFault), Action="http://tempuri.org/IWorkService/GetBookListCorrectUnrecoverableFaultFault", Name="UnrecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        WpfApp.WorkServiceReference.Book[] GetBookListCorrect();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetData", ReplyAction="http://tempuri.org/IWorkService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetBookListCorrect", ReplyAction="http://tempuri.org/IWorkService/GetBookListCorrectResponse")]
+        System.Threading.Tasks.Task<WpfApp.WorkServiceReference.Book[]> GetBookListCorrectAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IWorkService/GetDataUsingDataContractResponse")]
-        WpfApp.WorkServiceReference.CompositeType GetDataUsingDataContract(WpfApp.WorkServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetBookListError", ReplyAction="http://tempuri.org/IWorkService/GetBookListErrorResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.UnrecoverableFault), Action="http://tempuri.org/IWorkService/GetBookListErrorUnrecoverableFaultFault", Name="UnrecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.RecoverableFault), Action="http://tempuri.org/IWorkService/GetBookListErrorRecoverableFaultFault", Name="RecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        WpfApp.WorkServiceReference.Book[] GetBookListError();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IWorkService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<WpfApp.WorkServiceReference.CompositeType> GetDataUsingDataContractAsync(WpfApp.WorkServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetBookListError", ReplyAction="http://tempuri.org/IWorkService/GetBookListErrorResponse")]
+        System.Threading.Tasks.Task<WpfApp.WorkServiceReference.Book[]> GetBookListErrorAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetBookListCriticalFail", ReplyAction="http://tempuri.org/IWorkService/GetBookListCriticalFailResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.RecoverableFault), Action="http://tempuri.org/IWorkService/GetBookListCriticalFailRecoverableFaultFault", Name="RecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.UnrecoverableFault), Action="http://tempuri.org/IWorkService/GetBookListCriticalFailUnrecoverableFaultFault", Name="UnrecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        WpfApp.WorkServiceReference.Book[] GetBookListCriticalFail();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/GetBookListCriticalFail", ReplyAction="http://tempuri.org/IWorkService/GetBookListCriticalFailResponse")]
+        System.Threading.Tasks.Task<WpfApp.WorkServiceReference.Book[]> GetBookListCriticalFailAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/SaveCorrect", ReplyAction="http://tempuri.org/IWorkService/SaveCorrectResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.RecoverableFault), Action="http://tempuri.org/IWorkService/SaveCorrectRecoverableFaultFault", Name="RecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.UnrecoverableFault), Action="http://tempuri.org/IWorkService/SaveCorrectUnrecoverableFaultFault", Name="UnrecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        void SaveCorrect(WpfApp.WorkServiceReference.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/SaveCorrect", ReplyAction="http://tempuri.org/IWorkService/SaveCorrectResponse")]
+        System.Threading.Tasks.Task SaveCorrectAsync(WpfApp.WorkServiceReference.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/SaveError", ReplyAction="http://tempuri.org/IWorkService/SaveErrorResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.RecoverableFault), Action="http://tempuri.org/IWorkService/SaveErrorRecoverableFaultFault", Name="RecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.UnrecoverableFault), Action="http://tempuri.org/IWorkService/SaveErrorUnrecoverableFaultFault", Name="UnrecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        void SaveError(WpfApp.WorkServiceReference.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/SaveError", ReplyAction="http://tempuri.org/IWorkService/SaveErrorResponse")]
+        System.Threading.Tasks.Task SaveErrorAsync(WpfApp.WorkServiceReference.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/SaveCriticalFail", ReplyAction="http://tempuri.org/IWorkService/SaveCriticalFailResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.RecoverableFault), Action="http://tempuri.org/IWorkService/SaveCriticalFailRecoverableFaultFault", Name="RecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        [System.ServiceModel.FaultContractAttribute(typeof(WpfApp.WorkServiceReference.UnrecoverableFault), Action="http://tempuri.org/IWorkService/SaveCriticalFailUnrecoverableFaultFault", Name="UnrecoverableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+        void SaveCriticalFail(WpfApp.WorkServiceReference.Book book);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkService/SaveCriticalFail", ReplyAction="http://tempuri.org/IWorkService/SaveCriticalFailResponse")]
+        System.Threading.Tasks.Task SaveCriticalFailAsync(WpfApp.WorkServiceReference.Book book);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -118,20 +231,52 @@ namespace WpfApp.WorkServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
+        public WpfApp.WorkServiceReference.Book[] GetBookListCorrect() {
+            return base.Channel.GetBookListCorrect();
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
+        public System.Threading.Tasks.Task<WpfApp.WorkServiceReference.Book[]> GetBookListCorrectAsync() {
+            return base.Channel.GetBookListCorrectAsync();
         }
         
-        public WpfApp.WorkServiceReference.CompositeType GetDataUsingDataContract(WpfApp.WorkServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
+        public WpfApp.WorkServiceReference.Book[] GetBookListError() {
+            return base.Channel.GetBookListError();
         }
         
-        public System.Threading.Tasks.Task<WpfApp.WorkServiceReference.CompositeType> GetDataUsingDataContractAsync(WpfApp.WorkServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task<WpfApp.WorkServiceReference.Book[]> GetBookListErrorAsync() {
+            return base.Channel.GetBookListErrorAsync();
+        }
+        
+        public WpfApp.WorkServiceReference.Book[] GetBookListCriticalFail() {
+            return base.Channel.GetBookListCriticalFail();
+        }
+        
+        public System.Threading.Tasks.Task<WpfApp.WorkServiceReference.Book[]> GetBookListCriticalFailAsync() {
+            return base.Channel.GetBookListCriticalFailAsync();
+        }
+        
+        public void SaveCorrect(WpfApp.WorkServiceReference.Book book) {
+            base.Channel.SaveCorrect(book);
+        }
+        
+        public System.Threading.Tasks.Task SaveCorrectAsync(WpfApp.WorkServiceReference.Book book) {
+            return base.Channel.SaveCorrectAsync(book);
+        }
+        
+        public void SaveError(WpfApp.WorkServiceReference.Book book) {
+            base.Channel.SaveError(book);
+        }
+        
+        public System.Threading.Tasks.Task SaveErrorAsync(WpfApp.WorkServiceReference.Book book) {
+            return base.Channel.SaveErrorAsync(book);
+        }
+        
+        public void SaveCriticalFail(WpfApp.WorkServiceReference.Book book) {
+            base.Channel.SaveCriticalFail(book);
+        }
+        
+        public System.Threading.Tasks.Task SaveCriticalFailAsync(WpfApp.WorkServiceReference.Book book) {
+            return base.Channel.SaveCriticalFailAsync(book);
         }
     }
 }

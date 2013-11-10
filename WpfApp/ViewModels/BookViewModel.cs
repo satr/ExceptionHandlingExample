@@ -2,12 +2,12 @@
 using System.Windows.Input;
 using Common.Logging;
 using WpfApp.Commands.Books;
+using WpfApp.WorkServiceReference;
 
 namespace WpfApp.ViewModels
 {
     public class BookViewModel
     {
-        private object _book;
         public event EventHandler OnCloseView;
 
         public BookViewModel(ILogger logger)
@@ -16,7 +16,7 @@ namespace WpfApp.ViewModels
             SaveCriticalFailCommand = new BookSaveCriticalFailCommand(this, logger);
             SaveErrorCommand = new BookSaveErrorCommand(this, logger);
             CancelCommand = new BookCancelCommand(this, logger);
-            _book = new object();
+            Book = new Book();
         }
 
         public ICommand CancelCommand { get; set; }
@@ -24,16 +24,18 @@ namespace WpfApp.ViewModels
         public ICommand SaveCriticalFailCommand { get; set; }
         public ICommand SaveErrorCommand { get; set; }
 
-        public object Book { get; private set; }
+        public Book Book { get; private set; }
 
         public int Pages
         {
-            get; set;
+            get { return Book.Pages; }
+            set { Book.Pages = value; }
         }
 
         public string Title
         {
-            get; set;
+            get { return Book.Title; }
+            set { Book.Title = value; }
         }
 
         public void CloseView()

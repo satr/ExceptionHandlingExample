@@ -1,6 +1,7 @@
 ﻿using System;
 using Common.Logging;
 using WpfApp.ViewModels;
+using WpfApp.WorkServiceReference;
 
 namespace WpfApp.Commands.Books
 {
@@ -11,10 +12,9 @@ namespace WpfApp.Commands.Books
         {
         }
 
-        protected override void SaveBook()
+        protected override void SaveBook(Book book)
         {
-            //TODO
-            throw new Exception("Critical error occured");
+            Service.SaveCriticalFail(book);
         }
     }
 }

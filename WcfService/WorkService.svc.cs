@@ -1,33 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+using WcfService.Properties;
 
 namespace WcfService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "WorkService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select WorkService.svc or WorkService.svc.cs at the Solution Explorer and start debugging.
     public class WorkService : IWorkService
     {
-        public string GetData(int value)
+        private readonly static Collection<Book> BookList = new Collection<Book>();
+
+        public Collection<Book> GetBookListCorrect()
         {
-            return string.Format("You entered: {0}", value);
+            return BookList;
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public Collection<Book> GetBookListError()
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            //simulate error
+            ThrowRecoverableException(Resources.Messafe_Operation_cannot_be_performed, Resources.Message_Book_storage_is_not_available_at_this_time);
+            return BookList;
+        }
+
+        public Collection<Book> GetBookListCriticalFail()
+        {
+            //simulate critical failure
+            ThrowUnrecoverableException(Resources.Message_This_operation_requires_user_permits, Resources.Message_Access_to_database_denied);
+            return BookList;
+        }
+
+        public void SaveCorrect(Book book)
+        {
+            if (BookList.Any(b => b.Title == book.Title && b.Pages == book.Pages))
+                ThrowRecoverableException(Resources.Message_This_book_already_exists, Resources.Message_Book_with_such_title_and_amount_of_pages_exists);
+            BookList.Add(book);
+        }
+
+        public void SaveError(Book book)
+        {
+            //simulate error
+            ThrowRecoverableException(Resources.Messafe_Operation_cannot_be_performed, Resources.Message_Book_storage_is_not_available_at_this_time);
+        }
+
+        public void SaveCriticalFail(Book book)
+        {
+            //simulate critical failure
+            ThrowUnrecoverableException(Resources.Message_This_operation_requires_user_permits, Resources.Message_Access_to_database_denied);
+        }
+
+        private static void ThrowRecoverableException(string issue, string reason)
+        {
+            throw new FaultException<RecoverableFault>(new RecoverableFault {Issue = issue}, new FaultReason(reason));
+        }
+
+        private static void ThrowUnrecoverableException(string issue, string reason)
+        {
+            throw new FaultException<UnrecoverableFault>(new UnrecoverableFault {Issue = issue}, new FaultReason(reason));
         }
     }
 }

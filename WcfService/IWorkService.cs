@@ -1,47 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Collections.ObjectModel;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace WcfService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IWorkService" in both code and config file together.
     [ServiceContract]
     public interface IWorkService
     {
 
         [OperationContract]
-        string GetData(int value);
+        [FaultContract(typeof(RecoverableFault))]
+        [FaultContract(typeof(UnrecoverableFault))]
+        Collection<Book> GetBookListCorrect();
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        [FaultContract(typeof(RecoverableFault))]
+        [FaultContract(typeof(UnrecoverableFault))]
+        Collection<Book> GetBookListError();
 
-        // TODO: Add your service operations here
-    }
+        [OperationContract]
+        [FaultContract(typeof(RecoverableFault))]
+        [FaultContract(typeof(UnrecoverableFault))]
+        Collection<Book> GetBookListCriticalFail();
 
+        [OperationContract]
+        [FaultContract(typeof(RecoverableFault))]
+        [FaultContract(typeof(UnrecoverableFault))]
+        void SaveCorrect(Book book);
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        [OperationContract]
+        [FaultContract(typeof(RecoverableFault))]
+        [FaultContract(typeof(UnrecoverableFault))]
+        void SaveError(Book book);
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        [OperationContract]
+        [FaultContract(typeof(RecoverableFault))]
+        [FaultContract(typeof(UnrecoverableFault))]
+        void SaveCriticalFail(Book book);
 
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
     }
 }

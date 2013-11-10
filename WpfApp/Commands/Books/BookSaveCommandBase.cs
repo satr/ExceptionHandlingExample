@@ -1,8 +1,9 @@
-﻿using System.IO;
+﻿using System.ServiceModel;
 using Common.Logging;
 using WpfApp.BL.Services;
 using WpfApp.Properties;
 using WpfApp.ViewModels;
+using WpfApp.WorkServiceReference;
 
 namespace WpfApp.Commands.Books
 {
@@ -15,15 +16,26 @@ namespace WpfApp.Commands.Books
         {
         }
 
+        protected static IWorkService Service
+        {
+            get { return ServiceLocator.Get<WorkService>().Instance; }
+        }
+
         protected override void ExecuteInternal(object parameter)
         {
             try
             {
-                SaveBook();
+                SaveBook(BookViewModel.Book);
+                Logger.WriteInfo(Common.Helpers.GetStringFormatUnchecked(Resources.Message_Book__0__1__pages__added, 
+                                                                        BookViewModel.Book.Title, 
+                                                                        BookViewModel.Book.Pages));
             }
-            catch (FileNotFoundException e)
+            catch (FaultException<RecoverableFault> e)
             {
-                var message = Logger.WriteError(Resources.Message_Cannot_save_book, e);
+                var message = Common.Helpers.GetStringFormatUnchecked("{0}\n{1}", 
+                                                                        Resources.Message_Cannot_perform_operation, 
+                                                                        e.Reason);
+                Logger.WriteError(message);
                 ServiceLocator.Get<HumanInteractionService>().ShowError(message);
                 _cancelClosingView = true;
             }
@@ -36,5 +48,6 @@ namespace WpfApp.Commands.Books
                 CloseBookView();
         }
 
-        protected abstract void SaveBook();    }
+        protected abstract void SaveBook(Book book);    
+    }
 }

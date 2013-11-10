@@ -61,11 +61,20 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot save book.
+        ///   Looks up a localized string similar to Book &quot;{0}&quot; ({1} pages) added..
         /// </summary>
-        internal static string Message_Cannot_save_book {
+        internal static string Message_Book__0__1__pages__added {
             get {
-                return ResourceManager.GetString("Message_Cannot_save_book", resourceCulture);
+                return ResourceManager.GetString("Message_Book__0__1__pages__added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot perform operation.
+        /// </summary>
+        internal static string Message_Cannot_perform_operation {
+            get {
+                return ResourceManager.GetString("Message_Cannot_perform_operation", resourceCulture);
             }
         }
         
@@ -111,6 +120,15 @@ namespace WpfApp.Properties {
         internal static string Message_Plugin__0__is_starting {
             get {
                 return ResourceManager.GetString("Message_Plugin__0__is_starting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings were updated..
+        /// </summary>
+        internal static string Message_Settings_were_updated {
+            get {
+                return ResourceManager.GetString("Message_Settings_were_updated", resourceCulture);
             }
         }
         

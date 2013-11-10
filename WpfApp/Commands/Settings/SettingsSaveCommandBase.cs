@@ -20,6 +20,7 @@ namespace WpfApp.Commands.Settings
             try
             {
                 SaveSettings();
+                Logger.WriteInfo(Resources.Message_Settings_were_updated);
             }
             catch (FileNotFoundException e)
             {

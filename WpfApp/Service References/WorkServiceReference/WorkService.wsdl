@@ -3,51 +3,211 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:54321/WorkService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:54321/WorkService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:54321/WorkService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService" />
+      <xsd:import schemaLocation="http://localhost:54321/WorkService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IWorkService_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
+  <wsdl:message name="IWorkService_GetBookListCorrect_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookListCorrect" />
   </wsdl:message>
-  <wsdl:message name="IWorkService_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  <wsdl:message name="IWorkService_GetBookListCorrect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookListCorrectResponse" />
   </wsdl:message>
-  <wsdl:message name="IWorkService_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  <wsdl:message name="IWorkService_GetBookListCorrect_RecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q1:RecoverableFault" />
   </wsdl:message>
-  <wsdl:message name="IWorkService_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  <wsdl:message name="IWorkService_GetBookListCorrect_UnrecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q2:UnrecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_GetBookListError_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookListError" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_GetBookListError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookListErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_GetBookListError_UnrecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q3:UnrecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_GetBookListError_RecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q4:RecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_GetBookListCriticalFail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookListCriticalFail" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_GetBookListCriticalFail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookListCriticalFailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_GetBookListCriticalFail_RecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q5:RecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_GetBookListCriticalFail_UnrecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q6:UnrecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveCorrect_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCorrect" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveCorrect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCorrectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveCorrect_RecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q7:RecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveCorrect_UnrecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q8:UnrecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveError_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveError" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveError_RecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q9:RecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveError_UnrecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q10:UnrecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveCriticalFail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCriticalFail" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveCriticalFail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCriticalFailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveCriticalFail_RecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q11:RecoverableFault" />
+  </wsdl:message>
+  <wsdl:message name="IWorkService_SaveCriticalFail_UnrecoverableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/WcfService" name="detail" element="q12:UnrecoverableFault" />
   </wsdl:message>
   <wsdl:portType name="IWorkService">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IWorkService/GetData" message="tns:IWorkService_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IWorkService/GetDataResponse" message="tns:IWorkService_GetData_OutputMessage" />
+    <wsdl:operation name="GetBookListCorrect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkService/GetBookListCorrect" message="tns:IWorkService_GetBookListCorrect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkService/GetBookListCorrectResponse" message="tns:IWorkService_GetBookListCorrect_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/GetBookListCorrectRecoverableFaultFault" name="RecoverableFaultFault" message="tns:IWorkService_GetBookListCorrect_RecoverableFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/GetBookListCorrectUnrecoverableFaultFault" name="UnrecoverableFaultFault" message="tns:IWorkService_GetBookListCorrect_UnrecoverableFaultFault_FaultMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/IWorkService/GetDataUsingDataContract" message="tns:IWorkService_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IWorkService/GetDataUsingDataContractResponse" message="tns:IWorkService_GetDataUsingDataContract_OutputMessage" />
+    <wsdl:operation name="GetBookListError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkService/GetBookListError" message="tns:IWorkService_GetBookListError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkService/GetBookListErrorResponse" message="tns:IWorkService_GetBookListError_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/GetBookListErrorUnrecoverableFaultFault" name="UnrecoverableFaultFault" message="tns:IWorkService_GetBookListError_UnrecoverableFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/GetBookListErrorRecoverableFaultFault" name="RecoverableFaultFault" message="tns:IWorkService_GetBookListError_RecoverableFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookListCriticalFail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkService/GetBookListCriticalFail" message="tns:IWorkService_GetBookListCriticalFail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkService/GetBookListCriticalFailResponse" message="tns:IWorkService_GetBookListCriticalFail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/GetBookListCriticalFailRecoverableFaultFault" name="RecoverableFaultFault" message="tns:IWorkService_GetBookListCriticalFail_RecoverableFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/GetBookListCriticalFailUnrecoverableFaultFault" name="UnrecoverableFaultFault" message="tns:IWorkService_GetBookListCriticalFail_UnrecoverableFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCorrect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkService/SaveCorrect" message="tns:IWorkService_SaveCorrect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkService/SaveCorrectResponse" message="tns:IWorkService_SaveCorrect_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/SaveCorrectRecoverableFaultFault" name="RecoverableFaultFault" message="tns:IWorkService_SaveCorrect_RecoverableFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/SaveCorrectUnrecoverableFaultFault" name="UnrecoverableFaultFault" message="tns:IWorkService_SaveCorrect_UnrecoverableFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveError">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkService/SaveError" message="tns:IWorkService_SaveError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkService/SaveErrorResponse" message="tns:IWorkService_SaveError_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/SaveErrorRecoverableFaultFault" name="RecoverableFaultFault" message="tns:IWorkService_SaveError_RecoverableFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/SaveErrorUnrecoverableFaultFault" name="UnrecoverableFaultFault" message="tns:IWorkService_SaveError_UnrecoverableFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCriticalFail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkService/SaveCriticalFail" message="tns:IWorkService_SaveCriticalFail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkService/SaveCriticalFailResponse" message="tns:IWorkService_SaveCriticalFail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/SaveCriticalFailRecoverableFaultFault" name="RecoverableFaultFault" message="tns:IWorkService_SaveCriticalFail_RecoverableFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IWorkService/SaveCriticalFailUnrecoverableFaultFault" name="UnrecoverableFaultFault" message="tns:IWorkService_SaveCriticalFail_UnrecoverableFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWorkService" type="tns:IWorkService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IWorkService/GetData" style="document" />
+    <wsdl:operation name="GetBookListCorrect">
+      <soap:operation soapAction="http://tempuri.org/IWorkService/GetBookListCorrect" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="RecoverableFaultFault">
+        <soap:fault use="literal" name="RecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnrecoverableFaultFault">
+        <soap:fault use="literal" name="UnrecoverableFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/IWorkService/GetDataUsingDataContract" style="document" />
+    <wsdl:operation name="GetBookListError">
+      <soap:operation soapAction="http://tempuri.org/IWorkService/GetBookListError" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="UnrecoverableFaultFault">
+        <soap:fault use="literal" name="UnrecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="RecoverableFaultFault">
+        <soap:fault use="literal" name="RecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookListCriticalFail">
+      <soap:operation soapAction="http://tempuri.org/IWorkService/GetBookListCriticalFail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RecoverableFaultFault">
+        <soap:fault use="literal" name="RecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnrecoverableFaultFault">
+        <soap:fault use="literal" name="UnrecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCorrect">
+      <soap:operation soapAction="http://tempuri.org/IWorkService/SaveCorrect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RecoverableFaultFault">
+        <soap:fault use="literal" name="RecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnrecoverableFaultFault">
+        <soap:fault use="literal" name="UnrecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveError">
+      <soap:operation soapAction="http://tempuri.org/IWorkService/SaveError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RecoverableFaultFault">
+        <soap:fault use="literal" name="RecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnrecoverableFaultFault">
+        <soap:fault use="literal" name="UnrecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCriticalFail">
+      <soap:operation soapAction="http://tempuri.org/IWorkService/SaveCriticalFail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RecoverableFaultFault">
+        <soap:fault use="literal" name="RecoverableFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnrecoverableFaultFault">
+        <soap:fault use="literal" name="UnrecoverableFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="WorkService">
