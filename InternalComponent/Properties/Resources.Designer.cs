@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp.Properties {
+namespace InternalComponent.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace WpfApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WpfApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("InternalComponent.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,92 +61,47 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot save book.
+        ///   Looks up a localized string similar to Expected file not found in internal component..
         /// </summary>
-        internal static string Message_Cannot_save_book {
+        internal static string Message_Expected_file_not_found_in_internal_component {
             get {
-                return ResourceManager.GetString("Message_Cannot_save_book", resourceCulture);
+                return ResourceManager.GetString("Message_Expected_file_not_found_in_internal_component", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot save settings to file..
+        ///   Looks up a localized string similar to Internal component Throwing Exception is finishing..
         /// </summary>
-        internal static string Message_Cannot_save_settings_to_file {
+        internal static string Message_Internal_component_Throwing_Exception_is_finishing {
             get {
-                return ResourceManager.GetString("Message_Cannot_save_settings_to_file", resourceCulture);
+                return ResourceManager.GetString("Message_Internal_component_Throwing_Exception_is_finishing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Initialization completed..
+        ///   Looks up a localized string similar to Internal component Throwing Exception is running..
         /// </summary>
-        internal static string Message_Initialization_completed {
+        internal static string Message_Internal_component_Throwing_Exception_is_running {
             get {
-                return ResourceManager.GetString("Message_Initialization_completed", resourceCulture);
+                return ResourceManager.GetString("Message_Internal_component_Throwing_Exception_is_running", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Initialization started..
+        ///   Looks up a localized string similar to Internal component Throwing FileNotFoundException is finishing..
         /// </summary>
-        internal static string Message_Initialization_started {
+        internal static string Message_Internal_component_Throwing_FileNotFoundException_is_finishing {
             get {
-                return ResourceManager.GetString("Message_Initialization_started", resourceCulture);
+                return ResourceManager.GetString("Message_Internal_component_Throwing_FileNotFoundException_is_finishing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Plugin {0} finished.
+        ///   Looks up a localized string similar to Internal component Throwing FileNotFoundException is running..
         /// </summary>
-        internal static string Message_Plugin__0__finished {
+        internal static string Message_Internal_component_Throwing_FileNotFoundException_is_running {
             get {
-                return ResourceManager.GetString("Message_Plugin__0__finished", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Plugin {0} is starting.
-        /// </summary>
-        internal static string Message_Plugin__0__is_starting {
-            get {
-                return ResourceManager.GetString("Message_Plugin__0__is_starting", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unexpected error occured..
-        /// </summary>
-        internal static string Message_Unexpected_error_occured {
-            get {
-                return ResourceManager.GetString("Message_Unexpected_error_occured", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error.
-        /// </summary>
-        internal static string Title_Error {
-            get {
-                return ResourceManager.GetString("Title_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Info.
-        /// </summary>
-        internal static string Title_Info {
-            get {
-                return ResourceManager.GetString("Title_Info", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Warning.
-        /// </summary>
-        internal static string Title_Warning {
-            get {
-                return ResourceManager.GetString("Title_Warning", resourceCulture);
+                return ResourceManager.GetString("Message_Internal_component_Throwing_FileNotFoundException_is_running", resourceCulture);
             }
         }
     }

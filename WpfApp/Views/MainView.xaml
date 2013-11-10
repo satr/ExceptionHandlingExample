@@ -5,6 +5,7 @@
     <StackPanel Orientation="Horizontal">
     <StackPanel HorizontalAlignment="Left">
         <Button Command="{Binding EditSettingsCommand}" Content="Settings"></Button>
+        <Button Command="{Binding ShowBooksCommand}" Content="Books"></Button>
         <Button Command="{Binding InternalComponentThrowingFileNotFoundCommand}" Content="Use internal component which throws FileNotFoundException"></Button>
         <Button Command="{Binding InternalComponentThrowingExceptionCommand}" Content="Use internal component which throws Exception"></Button>
         <StackPanel x:Name="ExternalBLPanel"></StackPanel>

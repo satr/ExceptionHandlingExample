@@ -2,7 +2,7 @@
 using Common.Plugins;
 using WpfApp.Properties;
 
-namespace WpfApp.Commands
+namespace WpfApp.Commands.Main
 {
     public class PluginCommand : CommandBase
     {

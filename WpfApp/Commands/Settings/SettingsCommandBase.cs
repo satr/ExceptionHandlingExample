@@ -1,7 +1,7 @@
 ﻿using Common.Logging;
 using WpfApp.ViewModels;
 
-namespace WpfApp.Commands
+namespace WpfApp.Commands.Settings
 {
     public abstract class SettingsCommandBase : CommandBase
     {
@@ -14,7 +14,7 @@ namespace WpfApp.Commands
 
         protected void CloseView()
         {
-            SettingsViewModel.FireCloseView();
+            SettingsViewModel.CloseView();
         }
     }
 }

@@ -3,7 +3,7 @@ using WpfApp.BL;
 using WpfApp.BL.Services;
 using WpfApp.ViewModels;
 
-namespace WpfApp.Commands
+namespace WpfApp.Commands.Settings
 {
     public class SettingsSaveCorrectCommand : SettingsSaveCommandBase
     {

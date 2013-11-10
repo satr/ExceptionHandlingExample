@@ -4,7 +4,7 @@ using WpfApp.BL.Services;
 using WpfApp.Properties;
 using WpfApp.ViewModels;
 
-namespace WpfApp.Commands
+namespace WpfApp.Commands.Settings
 {
     public abstract class SettingsSaveCommandBase : SettingsCommandBase
     {

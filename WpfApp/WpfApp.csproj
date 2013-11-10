@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,18 +59,40 @@
     <Compile Include="BL\Services\HumanInteractionService.cs" />
     <Compile Include="BL\Services\ServiceLocator.cs" />
     <Compile Include="BL\SettingsService.cs" />
-    <Compile Include="Commands\SettingsSaveCommandBase.cs" />
-    <Compile Include="Commands\SettingsSaveCriticalFailCommand.cs" />
+    <Compile Include="Commands\Books\BookCancelCommand.cs" />
+    <Compile Include="Commands\Books\BookCommandBase.cs" />
+    <Compile Include="Commands\Books\BookListCommandBase.cs" />
+    <Compile Include="Commands\Books\BookSaveCommandBase.cs" />
+    <Compile Include="Commands\Books\BookSaveCriticalFailCommand.cs" />
+    <Compile Include="Commands\Books\BookSaveErrorCommand.cs" />
+    <Compile Include="Commands\Books\CloseBookListCommand.cs" />
+    <Compile Include="Commands\Settings\SettingsSaveCommandBase.cs" />
+    <Compile Include="Commands\Settings\SettingsSaveCriticalFailCommand.cs" />
     <Compile Include="Entities\Settings.cs" />
     <Compile Include="BL\Storage.cs" />
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\SettingsCommandBase.cs" />
+    <Compile Include="Commands\Settings\SettingsCommandBase.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
-    <Compile Include="ViewModels\EditSettingsCommand.cs" />
-    <Compile Include="Commands\SettingsSaveCorrectCommand.cs" />
-    <Compile Include="Commands\SettingsSaveErrorCommand.cs" />
-    <Compile Include="Commands\SettingsCancelCommand.cs" />
+    <Compile Include="Service References\WorkServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\Books\AddBookCommand.cs" />
+    <Compile Include="Commands\Main\EditSettingsCommand.cs" />
+    <Compile Include="Commands\Settings\SettingsSaveCorrectCommand.cs" />
+    <Compile Include="Commands\Settings\SettingsSaveErrorCommand.cs" />
+    <Compile Include="Commands\Settings\SettingsCancelCommand.cs" />
+    <Compile Include="Commands\Books\BookSaveCorrectCommand.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Page Include="Views\BookListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ErrorLogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,14 +113,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\InternalComponentThrowingFileNotFoundExceptionCommand.cs" />
-    <Compile Include="Commands\InternalComponentThrowingExceptionCommand.cs" />
-    <Compile Include="Commands\PluginCommand.cs" />
-    <Compile Include="Commands\InternalComponentCommandBase.cs" />
+    <Compile Include="Commands\Main\InternalComponentThrowingFileNotFoundExceptionCommand.cs" />
+    <Compile Include="Commands\Main\InternalComponentThrowingExceptionCommand.cs" />
+    <Compile Include="Commands\Main\PluginCommand.cs" />
+    <Compile Include="Commands\Main\InternalComponentCommandBase.cs" />
     <Compile Include="Helpers\PluginHelper.cs" />
     <Compile Include="Entities\LogItem.cs" />
     <Compile Include="Models\LogModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Commands\Main\ShowBookListCommand.cs" />
+    <Compile Include="Views\BookListView.xaml.cs">
+      <DependentUpon>BookListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BookListViewModel.cs" />
+    <Compile Include="Views\BookView.xaml.cs">
+      <DependentUpon>BookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="Views\ErrorLogView.xaml.cs">
       <DependentUpon>ErrorLogView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +169,19 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\WorkServiceReference\WorkService.wsdl" />
+    <None Include="Service References\WorkServiceReference\WorkService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkServiceReference\WorkService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkServiceReference\WorkService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkServiceReference\WpfApp.WorkServiceReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -150,6 +196,28 @@
       <Name>InternalComponent</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WorkServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkServiceReference\WorkService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,7 +1,7 @@
 ﻿using Common.Logging;
 using WpfApp.ViewModels;
 
-namespace WpfApp.Commands
+namespace WpfApp.Commands.Settings
 {
     public class SettingsCancelCommand: SettingsCommandBase
     {

@@ -4,6 +4,7 @@ using Common;
 using Common.Logging;
 using Common.Plugins;
 using WpfApp.Commands;
+using WpfApp.Commands.Main;
 
 namespace WpfApp.Helpers
 {

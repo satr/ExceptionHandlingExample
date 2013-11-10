@@ -1,8 +1,7 @@
 ﻿using Common.Logging;
-using WpfApp.Commands;
 using WpfApp.Views;
 
-namespace WpfApp.ViewModels
+namespace WpfApp.Commands.Main
 {
     public class EditSettingsCommand: CommandBase
     {

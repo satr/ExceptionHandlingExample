@@ -5,6 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csp
 	ProjectSection(ProjectDependencies) = postProject
 		{6B111E50-3B7F-49CC-943C-A9421A9F223D} = {6B111E50-3B7F-49CC-943C-A9421A9F223D}
 		{03EA3C52-5A76-4201-BBE1-0E418669B883} = {03EA3C52-5A76-4201-BBE1-0E418669B883}
+		{70A5F27D-4DE5-436B-9CAA-AFFB538AF47F} = {70A5F27D-4DE5-436B-9CAA-AFFB538AF47F}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalComponent", "InternalComponent\InternalComponent.csproj", "{33DBF0CA-D334-482A-B109-F1F6953EBE10}"
@@ -16,6 +17,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{555EC811-1BDB-4673-B9AB-151C5F8971D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D228FB74-78B7-47B9-A396-E6609FCB15A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{70A5F27D-4DE5-436B-9CAA-AFFB538AF47F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +46,10 @@ Global
 		{D228FB74-78B7-47B9-A396-E6609FCB15A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D228FB74-78B7-47B9-A396-E6609FCB15A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D228FB74-78B7-47B9-A396-E6609FCB15A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70A5F27D-4DE5-436B-9CAA-AFFB538AF47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70A5F27D-4DE5-436B-9CAA-AFFB538AF47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70A5F27D-4DE5-436B-9CAA-AFFB538AF47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70A5F27D-4DE5-436B-9CAA-AFFB538AF47F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

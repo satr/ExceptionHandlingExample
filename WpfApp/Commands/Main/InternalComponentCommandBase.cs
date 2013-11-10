@@ -1,7 +1,7 @@
 ﻿using Common.Logging;
 using InternalComponent;
 
-namespace WpfApp.Commands
+namespace WpfApp.Commands.Main
 {
     public abstract class InternalComponentCommandBase : CommandBase
     {

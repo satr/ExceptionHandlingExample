@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Common.Logging;
 using WpfApp.Commands;
+using WpfApp.Commands.Settings;
 using WpfApp.Entities;
 
 namespace WpfApp.ViewModels
@@ -38,7 +39,7 @@ namespace WpfApp.ViewModels
             set { NewSettings.TextOption = value; }
         }
 
-        public void FireCloseView()
+        public void CloseView()
         {
             if (OnCloseView != null)
                 OnCloseView(this, EventArgs.Empty);

@@ -141,4 +141,7 @@
   <data name="Message_Plugin__0__finished" xml:space="preserve">
     <value>Plugin {0} finished</value>
   </data>
+  <data name="Message_Cannot_save_book" xml:space="preserve">
+    <value>Cannot save book</value>
+  </data>
 </root>

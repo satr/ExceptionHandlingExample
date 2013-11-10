@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="60878fe7-7b1d-4ffa-86b2-597e5030993f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:54321/WorkService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WorkService.xsd" MetadataType="Schema" ID="6a3b1de9-9264-4c6c-872c-2f267931d73f" SourceId="1" SourceUrl="http://localhost:54321/WorkService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WorkService1.xsd" MetadataType="Schema" ID="3b174eac-af34-407c-84bc-7b2031d311ca" SourceId="1" SourceUrl="http://localhost:54321/WorkService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WorkService2.xsd" MetadataType="Schema" ID="e8cac342-30a0-486d-9657-acdb07b15320" SourceId="1" SourceUrl="http://localhost:54321/WorkService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WorkService.wsdl" MetadataType="Wsdl" ID="e4e06a87-a628-4026-88fc-2b8376242f5d" SourceId="1" SourceUrl="http://localhost:54321/WorkService.svc?wsdl" />
+    <MetadataFile FileName="WorkService.disco" MetadataType="Disco" ID="81cbc751-8d97-43b7-a2db-509a2d484f60" SourceId="1" SourceUrl="http://localhost:54321/WorkService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
