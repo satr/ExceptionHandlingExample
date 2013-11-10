@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Common.Logging;
 using WpfApp.BL.Services;
+using WpfApp.Properties;
 
 namespace WpfApp.Commands
 {
@@ -21,18 +22,30 @@ namespace WpfApp.Commands
 
         public void Execute(object parameter)
         {
+            ExecuteChecked(ExecuteInternal, parameter);
+            ExecuteChecked(FinalizeExecution, parameter);
+        }
+
+        private void ExecuteChecked(Action<object> executeInternal, object parameter)
+        {
             try
             {
-                ExecuteInternal(parameter);
+                executeInternal(parameter);
             }
             catch (Exception e)
             {
-                var message = Logger.WriteCritical("Unexpected error occured.", e);
+                var message = Logger.WriteCritical(Resources.Message_Unexpected_error_occured, e);
                 ServiceLocator.Get<HumanInteractionService>().ShowError(message);
             }
         }
 
+        protected virtual void FinalizeExecution(object parameter)
+        {
+        }
+
         protected abstract void ExecuteInternal(object parameter);
+
         public event EventHandler CanExecuteChanged;
+    
     }
 }

@@ -56,10 +56,24 @@
     <Compile Include="BL\CompositeLogger.cs" />
     <Compile Include="BL\Services\HumanInteractionService.cs" />
     <Compile Include="BL\Services\ServiceLocator.cs" />
+    <Compile Include="BL\SettingsService.cs" />
+    <Compile Include="Commands\SettingsSaveCommandBase.cs" />
+    <Compile Include="Commands\SettingsSaveCriticalFailCommand.cs" />
+    <Compile Include="Entities\Settings.cs" />
     <Compile Include="BL\Storage.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\SettingsCommandBase.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
+    <Compile Include="ViewModels\EditSettingsCommand.cs" />
+    <Compile Include="Commands\SettingsSaveCorrectCommand.cs" />
+    <Compile Include="Commands\SettingsSaveErrorCommand.cs" />
+    <Compile Include="Commands\SettingsCancelCommand.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Page Include="Views\ErrorLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,6 +99,9 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\ErrorLogView.xaml.cs">
       <DependentUpon>ErrorLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>

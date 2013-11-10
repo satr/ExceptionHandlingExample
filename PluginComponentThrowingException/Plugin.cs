@@ -2,6 +2,7 @@
 using Common.Logging;
 using Common.Plugins;
 using Common.Services;
+using PluginComponent.Properties;
 
 namespace PluginComponent
 {
@@ -15,24 +16,24 @@ namespace PluginComponent
 
         public void Run()
         {
-            Logger.WriteInfo(string.Format("Plugin {0} is starting", Description));
+            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__is_starting, Description));
             try
             {
                 DoWork();
             }
             catch (Exception e)
             {
-                var message = Logger.WriteCritical("Unexpected error occured in plugin.", e);
+                var message = Logger.WriteCritical(Resources.Message_Unexpected_error_occured_in_plugin, e);
                 HumanInteractionService.ShowError(message);
             }
-            Logger.WriteInfo(string.Format("Plugin {0} finished", Description));
+            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__finished, Description));
         }
 
         public string Description
         {
             get
             {
-                return "Plugin Throwing Exception";
+                return Resources.Title_Plugin_Throwing_Exception;
             }
         }
 
@@ -49,7 +50,8 @@ namespace PluginComponent
     {
         public void Do()
         {
-            throw new Exception("Some critical error occured");
+            //simulate critical error
+            throw new Exception("Critical error occured");
         }
     }
 }

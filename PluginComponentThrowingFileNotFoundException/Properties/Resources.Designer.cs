@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp.Properties {
+namespace PluginComponent.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace WpfApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WpfApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PluginComponent.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,11 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot save settings to file..
+        ///   Looks up a localized string similar to Expected file not found in plugin..
         /// </summary>
-        internal static string Message_Cannot_save_settings_to_file {
+        internal static string Message_Expected_file_not_found_in_plugin {
             get {
-                return ResourceManager.GetString("Message_Cannot_save_settings_to_file", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Initialization completed..
-        /// </summary>
-        internal static string Message_Initialization_completed {
-            get {
-                return ResourceManager.GetString("Message_Initialization_completed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Initialization started..
-        /// </summary>
-        internal static string Message_Initialization_started {
-            get {
-                return ResourceManager.GetString("Message_Initialization_started", resourceCulture);
+                return ResourceManager.GetString("Message_Expected_file_not_found_in_plugin", resourceCulture);
             }
         }
         
@@ -106,38 +88,20 @@ namespace WpfApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unexpected error occured..
+        ///   Looks up a localized string similar to Unexpected error occured in plugin..
         /// </summary>
-        internal static string Message_Unexpected_error_occured {
+        internal static string Message_Unexpected_error_occured_in_plugin {
             get {
-                return ResourceManager.GetString("Message_Unexpected_error_occured", resourceCulture);
+                return ResourceManager.GetString("Message_Unexpected_error_occured_in_plugin", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error.
+        ///   Looks up a localized string similar to Plugin throwing FileNotFoundException.
         /// </summary>
-        internal static string Title_Error {
+        internal static string Title_Plugin_throwing_FileNotFoundException {
             get {
-                return ResourceManager.GetString("Title_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Info.
-        /// </summary>
-        internal static string Title_Info {
-            get {
-                return ResourceManager.GetString("Title_Info", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Warning.
-        /// </summary>
-        internal static string Title_Warning {
-            get {
-                return ResourceManager.GetString("Title_Warning", resourceCulture);
+                return ResourceManager.GetString("Title_Plugin_throwing_FileNotFoundException", resourceCulture);
             }
         }
     }

@@ -3,6 +3,7 @@ using System.IO;
 using Common.Logging;
 using Common.Plugins;
 using Common.Services;
+using PluginComponent.Properties;
 
 namespace PluginComponent
 {
@@ -16,24 +17,24 @@ namespace PluginComponent
 
         public void Run()
         {
-            Logger.WriteInfo(string.Format("Plugin {0} is starting", Description));
+            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__is_starting, Description));
             try
             {
                 DoWork();
             }
             catch (Exception e)
             {
-                var message = Logger.WriteCritical("Unexpected error occured in plugin.", e);
+                var message = Logger.WriteCritical(Resources.Message_Unexpected_error_occured_in_plugin, e);
                 HumanInteractionService.ShowError(message);
             }
-            Logger.WriteInfo(string.Format("Plugin {0} finished", Description));
+            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__finished, Description));
         }
 
         public string Description
         {
             get
             {
-                return "Plugin throwing FileNotFoundException";
+                return Resources.Title_Plugin_throwing_FileNotFoundException;
             }
         }
 
@@ -49,7 +50,7 @@ namespace PluginComponent
             }
             catch (FileNotFoundException e)
             {
-                Logger.WriteError("Expected file not found in plugin.", e);
+                Logger.WriteError(Resources.Message_Expected_file_not_found_in_plugin, e);
             } 
         }
     }
@@ -58,6 +59,7 @@ namespace PluginComponent
     {
         public void Do()
         {
+            //simulate file not found error
             throw new FileNotFoundException("Expected file not found");
         }
     }

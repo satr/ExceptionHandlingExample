@@ -1,5 +1,6 @@
 ﻿using Common.Logging;
 using Common.Plugins;
+using WpfApp.Properties;
 
 namespace WpfApp.Commands
 {
@@ -14,9 +15,9 @@ namespace WpfApp.Commands
 
         protected override void ExecuteInternal(object parameter)
         {
-            Logger.WriteInfo(string.Format("Plugin {0} is starting", _plugin.Description));
+            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__is_starting, _plugin.Description));
             _plugin.Run();
-            Logger.WriteInfo(string.Format("Plugin {0} finished", _plugin.Description));
+            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__finished, _plugin.Description));
         }
     }
 }
