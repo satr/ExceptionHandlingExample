@@ -17,7 +17,7 @@ namespace PluginComponent
 
         public void Run()
         {
-            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__is_starting, Description));
+            Logger.WriteInfo(Common.Helpers.GetStringFormatUnchecked(Resources.Message_Plugin__0__is_starting, Description));
             try
             {
                 DoWork();
@@ -27,7 +27,7 @@ namespace PluginComponent
                 var message = Logger.WriteCritical(Resources.Message_Unexpected_error_occured_in_plugin, e);
                 HumanInteractionService.ShowError(message);
             }
-            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__finished, Description));
+            Logger.WriteInfo(Common.Helpers.GetStringFormatUnchecked(Resources.Message_Plugin__0__finished, Description));
         }
 
         public string Description

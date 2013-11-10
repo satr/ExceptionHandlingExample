@@ -15,9 +15,9 @@ namespace WpfApp.Commands
 
         protected override void ExecuteInternal(object parameter)
         {
-            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__is_starting, _plugin.Description));
+            Logger.WriteInfo(Common.Helpers.GetStringFormatUnchecked(Resources.Message_Plugin__0__is_starting, _plugin.Description));
             _plugin.Run();
-            Logger.WriteInfo(string.Format(Resources.Message_Plugin__0__finished, _plugin.Description));
+            Logger.WriteInfo(Common.Helpers.GetStringFormatUnchecked(Resources.Message_Plugin__0__finished, _plugin.Description));
         }
     }
 }
