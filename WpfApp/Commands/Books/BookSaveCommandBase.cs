@@ -23,6 +23,7 @@ namespace WpfApp.Commands.Books
 
         protected override void ExecuteInternal(object parameter)
         {
+            _cancelClosingView = false;
             try
             {
                 SaveBook(BookViewModel.Book);

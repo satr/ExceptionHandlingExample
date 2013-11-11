@@ -135,4 +135,10 @@
   <data name="Message_Book_with_such_title_and_amount_of_pages_exists" xml:space="preserve">
     <value>Book with such title and amount of pages exists.</value>
   </data>
+  <data name="Message_Critical_failure_occured" xml:space="preserve">
+    <value>Critical failure occured.</value>
+  </data>
+  <data name="Message_Operation_is_interrupted" xml:space="preserve">
+    <value>Operation is interrupted.</value>
+  </data>
 </root>

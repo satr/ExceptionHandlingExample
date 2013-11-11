@@ -97,6 +97,24 @@ namespace WcfService.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Critical failure occured..
+        /// </summary>
+        internal static string Message_Critical_failure_occured {
+            get {
+                return ResourceManager.GetString("Message_Critical_failure_occured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation is interrupted..
+        /// </summary>
+        internal static string Message_Operation_is_interrupted {
+            get {
+                return ResourceManager.GetString("Message_Operation_is_interrupted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This book already exists..
         /// </summary>
         internal static string Message_This_book_already_exists {

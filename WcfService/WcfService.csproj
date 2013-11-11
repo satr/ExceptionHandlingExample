@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="BookManager.cs" />
     <Compile Include="FaultBase.cs" />
     <Compile Include="RecoverableFault.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -71,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Storage.cs" />
     <Compile Include="UnrecoverableFault.cs" />
     <Compile Include="WorkService.svc.cs">
       <DependentUpon>WorkService.svc</DependentUpon>
